@@ -20,7 +20,7 @@ services:
     restart: always
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+      PGADMIN_DEFAULT_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - pgadmin_data_dev:/var/lib/pgadmin
     ports:
@@ -33,15 +33,15 @@ services:
       context: .
       dockerfile: Dockerfile.dev
       args:
-        PORT: ${SERVICE_PORT}
+        PORT: ${PORT}
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
     restart: always
     ports:
-      - ${SERVICE_PORT}:${SERVICE_PORT}
+      - ${PORT}:${PORT}
     environment:
-      SERVICE_PORT: ${SERVICE_PORT}
+      SERVICE_PORT: ${PORT}
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
       DEPLOY_TYPE: docker
     depends_on:
