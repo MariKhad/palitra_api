@@ -19,7 +19,6 @@ services:
     image: dpage/pgadmin4
     restart: always
     environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - pgadmin_data_dev:/var/lib/pgadmin
@@ -31,7 +30,7 @@ services:
     container_name: app_dev
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
       args:
         PORT: ${PORT}
     volumes:
