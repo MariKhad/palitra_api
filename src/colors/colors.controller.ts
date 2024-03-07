@@ -14,12 +14,13 @@ import { ColorsService } from './colors.service';
 import { CreateColorDto } from './dto/create-color.dto';
 import { UpdateColorDto } from './dto/update-color.dto';
 import { Palette } from 'src/palettes/entities/palette.entity';
-import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { UsersService } from 'src/users/users.service';
 import { User } from 'src/users/entities/user.entity';
 import { ERRORS } from 'const';
 import { PalettesService } from 'src/palettes/palettes.service';
 
+@ApiBearerAuth()
 @ApiTags('Colors')
 @Controller('colors')
 export class ColorsController {

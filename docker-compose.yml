@@ -15,7 +15,7 @@ services:
       - 5432:5432
 
   pqadmin:
-    container_name: pgadmin_dev
+    container_name: pgadmin_devm
     image: dpage/pgadmin4
     restart: always
     environment:

@@ -8,7 +8,7 @@ async function start() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
-    .setTitle('Test Api')
+    .setTitle('Pallete Api')
     .setDescription(
       'Technologies used: Typescript, Nest.js, PostgreSQL, TypeOrm',
     )
