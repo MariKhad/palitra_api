@@ -1,11 +1,15 @@
-FROM node:18
+FROM node:20-bullseye
 
-WORKDIR /palitra
+WORKDIR /app
 
 COPY package*.json ./
 
 RUN npm install
 
 COPY . .
+
+ENV PORT 5000
+
+EXPOSE $PORT
 
 CMD ["npm", "run", "start:dev"]
