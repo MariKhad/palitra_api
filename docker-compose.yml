@@ -19,6 +19,7 @@ services:
     image: dpage/pgadmin4
     restart: always
     environment:
+      PGADMIN_DEFAULT_EMAIL: ${POSTGRES_USER}
       PGADMIN_DEFAULT_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - pgadmin_data_dev:/var/lib/pgadmin
